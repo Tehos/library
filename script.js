@@ -5,22 +5,21 @@ const library = document.querySelector(".library");
 const visible = document.querySelectorAll(".visible");
 const hidden = document.querySelectorAll(".hidden");
 const addButton = document.querySelector(".add-button");
-
-
 const addBookButton = document.querySelector(".add-book-button");
 
-addBookButton.addEventListener("click", ()=> {
+
+
+addBookButton.addEventListener("click", ()=> { /*This makes the popup appear.*/
     for(i=0;i<visible.length;i++){
-        visible[i].classList.toggle('hidden');
+        visible[i].classList.toggle("hidden");
     }
 })
 
 
 
-addButton.addEventListener("click", ()=>{
+addButton.addEventListener("click", ()=>{ /*This makes the popup disappear.*/
     for(i=0; i<visible.length; i++){
         visible[i].classList.toggle("hidden");
-
     }
 });
 
