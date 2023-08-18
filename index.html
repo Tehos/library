@@ -10,14 +10,31 @@
     <title>Library</title>
 </head>
 <body>
+    <div class="overlay visible hidden"></div>
     <header>
         <div>
             myLibrary
+            <div class="add-book-button">Add Book</div>
         </div>
     </header>
     <div class="container">
+<!-- HIDDEN INPUT POPUP  -->
+
+        <div class="popup-input-container visible hidden">
+            <form acion="" method="post">
+                <input id="title-input" type="text" name="title" placeholder="Title">
+            </form>
+            <form acion="" method="post">
+                <input id="author-input" type="text" name="title" placeholder="Author">
+            </form>
+            <form acion="" method="post">
+                <input id="pages-input" type="text" name="title" placeholder="Pages">
+            </form>
+            <div class="add-button">Add</div>
+        </div>
+        
         <div class="library">
-            <div class="book">
+            <!-- <div class="book">
                 <div class="title">Title:</div>
                 <div class="author">Author:</div>
                 <div class="pages">Pages:</div>
@@ -31,7 +48,7 @@
                 <div class="title">Title:</div>
                 <div class="author">Author:</div>
                 <div class="pages">Pages:</div>
-            </div>
+            </div> -->
         </div>
     </div>
     <script src="script.js"></script>
