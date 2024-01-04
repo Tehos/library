@@ -2,32 +2,24 @@
 // const author = document.querySelector(".author");
 // const pages = document.querySelector(".pages");
 const library = document.querySelector(".library");
-const visible = document.querySelectorAll(".visible");
-const hidden = document.querySelectorAll(".hidden");
-const addButton = document.querySelector(".add-button");
-const newBookButton = document.querySelector(".new-book-button");
 const titleInput = document.getElementById('title-input');
 const authorInput = document.getElementById('author-input');
 const pagesInput = document.getElementById('pages-input');
+const dialog = document.querySelector("dialog");
+const newBookButton = document.querySelector("[data-open-modal]");
+const addButton = document.querySelector("[data-close-modal]");
 
 
 
 
 newBookButton.addEventListener("click", ()=> { /*This makes the popup appear.*/
-    for(i=0;i<visible.length;i++){
-        visible[i].classList.toggle("hidden");
-    }
+    dialog.showModal()
 })
 
 
-
 addButton.addEventListener("click", ()=>{ /*This makes the popup disappear.*/
-    for(i=0; i<visible.length; i++){
-        visible[i].classList.toggle("hidden");
-    }
-
-
-
+    addBookToLibrary(titleInput.value , authorInput.value , pagesInput.value);
+    dialog.close();
 });
 
 
