@@ -5,11 +5,15 @@ const library = document.querySelector(".library");
 const visible = document.querySelectorAll(".visible");
 const hidden = document.querySelectorAll(".hidden");
 const addButton = document.querySelector(".add-button");
-const addBookButton = document.querySelector(".add-book-button");
+const newBookButton = document.querySelector(".new-book-button");
+const titleInput = document.getElementById('title-input');
+const authorInput = document.getElementById('author-input');
+const pagesInput = document.getElementById('pages-input');
 
 
 
-addBookButton.addEventListener("click", ()=> { /*This makes the popup appear.*/
+
+newBookButton.addEventListener("click", ()=> { /*This makes the popup appear.*/
     for(i=0;i<visible.length;i++){
         visible[i].classList.toggle("hidden");
     }
@@ -21,51 +25,33 @@ addButton.addEventListener("click", ()=>{ /*This makes the popup disappear.*/
     for(i=0; i<visible.length; i++){
         visible[i].classList.toggle("hidden");
     }
+
+
+
 });
 
 
 
-
-
-// function createBookCard(){
-//     const newDiv = document.createElement("div");
-//     newDiv.classList.add("book");
-//     library.appendChild(newDiv);
-//     const book = library.querySelector(".book");
-//     console.log(book);
-//     (()=>{
-        
-//     })();
-// }
-
-// createBookCard();
-
-
 const myLibrary = [];
 
+function Book(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+   
+}
 
-// // This is a function factory that creates book objects
-// const bookFactory = (title, author, pages) => {
-//     return {title, author, pages}
-// }
+function addBookToLibrary(title, author, pages) {
+    myLibrary.push(new Book(title, author, pages));
+    createBookCard(myLibrary[myLibrary.length-1].title, myLibrary[myLibrary.length-1].author, myLibrary[myLibrary.length-1].pages);
+}
 
-// //This is a function that adds the book objects to the 'myLibrary' array
-// function addBookToLibrary(book){
-//     myLibrary.push(book);
-//     function displayBook(){
-//         title.textContent = `Title: ${book.title}`;
-//         author.textContent = `Author: ${book.author}`;
-//         pages.textContent = `Pages: ${book.pages}`;
-//     }
-//     displayBook();
-// }
+function createBookCard(title,author,pages){
+    library.appendChild(Object.assign(document.createElement("div"), {classList: "book"}));
+    let books = document.getElementsByClassName("book");
+    books[books.length-1].appendChild(Object.assign(document.createElement("div"), {classList: "title", innerHTML:`Title: ${title}`}));
+    books[books.length-1].appendChild(Object.assign(document.createElement("div"), {classList: "author", innerHTML:`Author: ${author}`}));
+    books[books.length-1].appendChild(Object.assign(document.createElement("div"), {classList: "pages", innerHTML:`Pages: ${pages}`}));
+}
 
-// const theHobbit = bookFactory('The Hobbit', 'J.R.R Tolkien', 250);
-// const steppenWolf = bookFactory('Steppenwolf', 'Herman Hesse', 256);
-// const theTunnel = bookFactory('The Tunnel', 'Ernesto Sabato', 158)
-
-// addBookToLibrary(theHobbit);
-// addBookToLibrary(steppenWolf);
-// addBookToLibrary(theTunnel);
-// console.log(myLibrary);
 
