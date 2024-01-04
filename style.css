@@ -28,6 +28,7 @@ header > div{
 
 .add-book-button{
     cursor: pointer;
+    z-index: 0;
 }
 
 .add-button{
@@ -64,8 +65,11 @@ position: relative;
     background-color: #e8e8e8;
     padding-top: 2rem;
     height: 50%;
-    width: 25%;
+    width: 20%;
     border-radius:30px;
+    transform: translateY(0);
+    opacity: 100%;
+    transition: 0.25s ease-in;
 }
 
 input{
@@ -96,6 +100,7 @@ input{
 }
 
 .hidden{
-    visibility: hidden;
+    transform: translateY(-50%);
+    opacity: 0%;
 }
 
