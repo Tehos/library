@@ -16,20 +16,26 @@
         <div>
             myLibrary
         </div>
-        <button data-open-modal class="new-book-button">New Book</button>
+        <button type="button" id="new-book-button">New Book</button>   
     </header>
     <div class="container">
-        <dialog data-modal >
-            <form method="dialog">
-                <input id="title-input" type="text" name="title" placeholder="Title">
+        <dialog id="book-form">
+            <form>
+                <label for="title">Title</label>
+                <input id="title-input" type="text" name="title" placeholder="Der Steppenwolf"/>
             </form>
-            <form method="dialog">
-                <input id="author-input" type="text" name="author" placeholder="Author">
+            <form>
+                <label for="author">Author</label>
+                <input id="author-input" type="text" name="author" placeholder="Herman Hesse"/>
             </form>
-            <form method="dialog">
-                <input id="pages-input" type="text" name="pages" placeholder="Pages">
+            <form>
+                <label for="pages">Number of pages</label>
+                <input id="pages-input" type="text" name="pages" placeholder="416"/>
             </form>
-            <button data-close-modal type="submit">Add</button>
+            <div class="form-buttons">
+                <button id="add-button" type="submit">Add</button>
+                <button id = "cancel-button" value="cancel" formmethod="dialog">Cancel</button>
+            </div>
         </dialog>
         <div class="library">
 

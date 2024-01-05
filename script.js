@@ -5,22 +5,28 @@ const library = document.querySelector(".library");
 const titleInput = document.getElementById('title-input');
 const authorInput = document.getElementById('author-input');
 const pagesInput = document.getElementById('pages-input');
-const dialog = document.querySelector("dialog");
-const newBookButton = document.querySelector("[data-open-modal]");
-const addButton = document.querySelector("[data-close-modal]");
+const bookForm = document.getElementById("book-form");
+const newBookButton = document.getElementById("new-book-button");
+const addButton = document.getElementById("add-button");
+const cancelButton = document.getElementById("cancel-button")
 
 
 
-
-newBookButton.addEventListener("click", ()=> { /*This makes the popup appear.*/
-    dialog.showModal()
+newBookButton.addEventListener("click", ()=> {
+    bookForm.showModal();
 })
 
 
-addButton.addEventListener("click", ()=>{ /*This makes the popup disappear.*/
+addButton.addEventListener("click", (event)=>{
+    event.preventDefault();
     addBookToLibrary(titleInput.value , authorInput.value , pagesInput.value);
-    dialog.close();
+    bookForm.close();
+
 });
+
+cancelButton.addEventListener("click", ()=>{
+    bookForm.close();
+})
 
 
 
@@ -45,5 +51,4 @@ function createBookCard(title,author,pages){
     books[books.length-1].appendChild(Object.assign(document.createElement("div"), {classList: "author", innerHTML:`Author: ${author}`}));
     books[books.length-1].appendChild(Object.assign(document.createElement("div"), {classList: "pages", innerHTML:`Pages: ${pages}`}));
 }
-
 
